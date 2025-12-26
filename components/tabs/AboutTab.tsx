@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -10,108 +10,112 @@ import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export const AboutTab = () => {
+  const [isClient, setIsClient] = useState(false)
+  useEffect(()=>{
+    setIsClient(true)
+  },[])
   return (
-    <div className="grid gap-6">
-      <Card className="border-slate-200 shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-blue-50 to-slate-50">
-          <CardTitle className="text-2xl">Tentang Aplikasi</CardTitle>
-          <CardDescription className="text-base">
-            Implementasi konsep logika proposisional dan aljabar Boolean
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="pt-6">
-          <p className="text-slate-700 leading-relaxed mb-6">
-            Aplikasi ini dibuat sebagai bagian dari{" "}
-            <strong className="text-slate-900">UAS Matematika Logika</strong>{" "}
-            dengan tujuan mengimplementasikan konsep logika proposisional dan
-            aljabar Boolean dalam studi kasus penentuan zakat.
+    isClient && (
+      <div className=" min-h-[54vh] p-4 flex flex-col items-center space-y-4">
+        <p className="text-xl font-medium capitalize text-slate-600">
+          tentang aplikasi ini
+        </p>
+        <p className="text-4xl font-bold capitalize">Kalkulator Zakat</p>
+        <p className="pb-8 text-slate-600">
+          dibuat untuk menyelesaikan tugas proyek UTS Logika Matematika
+        </p>
+
+        <div className="text-start w-full space-y-4 pb-8">
+          <p className=" text-lg w-full bg-slate-100 font-medium border text-slate-600 rounded p-2 ps-4">
+            Detail Aplikasi
           </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-6 border border-slate-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-4xl border-4 border-white shadow-md">
-                  🧑‍🎓
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900">
-                    Data Pembuat
-                  </h3>
-                  <Badge variant="secondary" className="mt-1">
-                    Mahasiswa
-                  </Badge>
-                </div>
-              </div>
-              <ul className="space-y-3 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <span className="font-medium min-w-[120px]">Nama:</span>
-                  <span className="text-slate-600">[Nama Mahasiswa]</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-medium min-w-[120px]">NIM:</span>
-                  <span className="text-slate-600">[NIM]</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-medium min-w-[120px]">Kelas:</span>
-                  <span className="text-slate-600">[Kelas]</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-medium min-w-[120px]">
-                    Level Challenge:
-                  </span>
-                  <Badge className="bg-blue-600">[Level]</Badge>
-                </li>
-              </ul>
+          <div className="grid sm:grid-cols-2 gap-8">
+            <div>
+              <p className="text-lg text-slate-600">link deployment</p>
+              <p
+                className="font-medium text-2xl text-blue-600 hover:underline cursor-pointer"
+                onClick={() => window.location.reload()}
+              >
+                {window.location.href}
+              </p>
             </div>
-
-            <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-4xl border-4 border-white shadow-md">
-                  🧑‍💼
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900">
-                    Info Dosen
-                  </h3>
-                  <Badge variant="outline" className="mt-1">
-                    Pengampu
-                  </Badge>
-                </div>
-              </div>
-              <ul className="space-y-3 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <span className="font-medium min-w-[120px]">Dosen:</span>
-                  <span className="text-slate-600">Iin Sholihin, M.Kom</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-medium min-w-[120px]">NIDN:</span>
-                  <span className="text-slate-600">5943765666130312</span>
-                </li>
-                <li className="flex flex-col gap-1">
-                  <span className="font-medium">Link:</span>
-                  <a
-                    href="https://kangsolihin.web.id"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-700 underline underline-offset-4 break-all"
-                  >
-                    Kang Solihin Personal Web
-                  </a>
-                </li>
-              </ul>
+            <div>
+              <p className="text-lg text-slate-600">github repository</p>
+              <a
+                className="font-medium text-2xl text-blue-600 hover:underline cursor-pointer"
+                href="https://github.com/rizalalfadlil/uas-logma"
+              >
+                github.com/rizalalfadlil/uas-logma
+              </a>
             </div>
           </div>
-
-          <Alert className="mt-6 border-amber-200 bg-amber-50">
-            <AlertDescription className="text-slate-700">
-              <strong className="text-slate-900">Catatan:</strong>{" "}
-              <span className="text-red-600 font-semibold">
-                Silahkan ubah section ini sesuai desain kalian (bebas)!
-              </span>
-            </AlertDescription>
-          </Alert>
-        </CardContent>
-      </Card>
-    </div>
+        </div>
+        <div className="text-start w-full space-y-4 pb-8">
+          <p className=" text-lg w-full bg-slate-100 font-medium border text-slate-600 rounded p-2 ps-4">
+            Dibuat Oleh
+          </p>
+          <div>
+            <p className="text-lg text-slate-600">Nama</p>
+            <p className="font-medium text-4xl">Hafidz Rizal Al-Fadlil</p>
+          </div>
+          <div className="grid sm:flex gap-4 sm:gap-10 pt-4">
+            <div>
+              <p className=" text-slate-600">NIM</p>
+              <p className="font-medium text-2xl">256512014</p>
+            </div>
+            <div>
+              <p className=" text-slate-600">program studi</p>
+              <p className="font-medium text-2xl uppercase">Informatika</p>
+            </div>
+            <div>
+              <p className=" text-slate-600">level challenge</p>
+              <p className="font-medium text-2xl uppercase">3</p>
+            </div>
+            <div>
+              <p className=" text-slate-600">github</p>
+              <a
+                className="font-medium text-2xl text-blue-500 hover:underline"
+                href="https://github.com/rizalalfadlil"
+              >
+                RizalAlfadlil
+              </a>
+            </div>
+            <div>
+              <p className=" text-slate-600">website</p>
+              <a
+                className="font-medium text-2xl text-blue-500 hover:underline"
+                href="https://portfolio.ism-smile.web.id/developer"
+              >
+                RizalAlfadlil | Developer Portfolio
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="text-start w-full space-y-4 pb-8">
+          <p className=" text-lg w-full bg-slate-100 font-medium border text-slate-600 rounded p-2 ps-4">
+            Tentang Dosen
+          </p>
+          <div>
+            <p className="text-lg text-slate-600">Nama</p>
+            <p className="font-medium text-4xl">Iin Sholihin, M.Kom</p>
+          </div>
+          <div className="grid sm:flex gap-4 sm:gap-10 pt-4">
+            <div>
+              <p className=" text-slate-600">NIDN</p>
+              <p className="font-medium text-2xl">5943765666130312</p>
+            </div>
+            <div>
+              <p className=" text-slate-600">website</p>
+              <a
+                className="font-medium text-2xl text-blue-500 hover:underline"
+                href="https://kangsolihin.web.id/"
+              >
+                Kang Solihin Personal Web
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   );
 };

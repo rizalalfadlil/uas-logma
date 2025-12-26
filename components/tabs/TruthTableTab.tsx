@@ -39,7 +39,7 @@ export const TruthTableTab = () => {
                     {tk.header.map((h, j) => (
                       <TableHead
                         key={j}
-                        className="p-4 border text-slate-500 bg-slate-50 border-slate-200"
+                        className="p-4 border text-black text-center font-bold"
                       >
                         {h}
                       </TableHead>

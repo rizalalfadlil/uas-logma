@@ -23,8 +23,10 @@ import { LawTab } from "@/components/tabs/LawTab";
 import { EvidenceTab } from "@/components/tabs/EvidenceTab";
 import { TruthTableTab } from "@/components/tabs/TruthTableTab";
 import { AlgorithmTab } from "@/components/tabs/AlgorithmTab";
+import { useState } from "react";
 
 export default function Home() {
+  const [setujuPersyaratan, setSetujuPersyaratan] = useState(false);
   return (
     <MainLayout>
       <Header />
@@ -88,7 +90,10 @@ export default function Home() {
           </TabsContent>
 
           <TabsContent value="kalkulator" className="mt-6">
-            <CalculatorTab />
+            <CalculatorTab
+              setSetujuPersyaratan={setSetujuPersyaratan}
+              setujuPersyaratan={setujuPersyaratan}
+            />
           </TabsContent>
 
           <TabsContent value="infografis" className="mt-6">
@@ -115,8 +120,7 @@ export default function Home() {
 
       <footer className="bg-white border-t mt-12">
         <div className="container mx-auto px-4 py-6 text-center">
-          <p className="text-slate-600">UAS Matematika Logika 2025</p>
-          <p className="text-slate-600">UAS Matematika Logika © 2025</p>
+          <p className="text-slate-600">© 2025 RizalAlfadlil</p>
         </div>
       </footer>
     </MainLayout>
