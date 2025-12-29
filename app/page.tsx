@@ -39,7 +39,7 @@ export default function Home() {
               className="flex items-center gap-2 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
             >
               <Info className="h-4 w-4" />
-              <span className="hidden sm:inline">About</span>
+              <span className="hidden sm:inline">Tentang</span>
             </TabsTrigger>
             <TabsTrigger
               value="kalkulator"

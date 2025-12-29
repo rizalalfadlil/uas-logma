@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Logic Challenge – Aplikasi Zakat | UAS Matematika Logika',
+  title: 'Kalkulator Zakat',
   description: 'Aplikasi perhitungan zakat menggunakan konsep logika proposisional dan aljabar Boolean untuk UAS Matematika Logika',
   openGraph: {
     images: [

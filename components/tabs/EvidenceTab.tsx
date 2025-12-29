@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { FileText } from "lucide-react";
 import { dalil_zakat } from "@/utils/data";
 
@@ -23,14 +22,9 @@ export const EvidenceTab = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-6">
-        <p className="text-slate-700 leading-relaxed mb-6">
-          Dalil zakat dan pendapat ulama yang menjadi acuan aplikasi ini antara
-          lain:
-        </p>
-
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {dalil_zakat.map((d, i)=>(
-            <div key={i} className="border p-4 rounded-lg flex flex-col justify-center">
+            <div key={i} className="border p-4 rounded-lg flex flex-col justify-center hover:scale-105 transition-all duration-300">
               <p className="italic">&quot;{d.teks}&quot;</p>
               <p className="text-xs mt-4 text-slate-500">{d.sumber}</p>
             </div>

@@ -1,15 +1,6 @@
 import { formatRp } from "./functions";
 
 type mal = "emas" | "perak" | "uang" | "kambing" | "sapi" | "pertanian";
-type mustahik =
-  | "fakir"
-  | "miskin"
-  | "amil"
-  | "muallaf"
-  | "budak"
-  | "gharim"
-  | "fi sabil"
-  | "ibnu sabil";
 const fitrah = {
   harga_beras: 20000,
   berat: 2.5,
@@ -30,7 +21,7 @@ const mal = {
   nisab: {
     emas: 85,
     perak: 595,
-    uang: kurs.emas,
+    uang: kurs.emas * 85,
     kambing: 40,
     sapi: 30,
     pertanian: 653,
@@ -146,11 +137,11 @@ const cekMal = ({
   };
   const persyaratan = {
     terpenuhi: Object.entries(hitung)
-      .filter(([key, value]) => value > 0)
-      .map(([key, value]) => `${keterangan[key as keyof typeof keterangan]}`),
+      .filter(([_, value]) => value > 0)
+      .map(([key, _]) => `${keterangan[key as keyof typeof keterangan]}`),
     belumTerpenuhi: Object.entries(hitung)
-      .filter(([key, value]) => value == 0)
-      .map(([key, value]) => `${keterangan[key as keyof typeof keterangan]}`),
+      .filter(([_, value]) => value == 0)
+      .map(([key, _]) => `${keterangan[key as keyof typeof keterangan]}`),
   };
   return {
     hitung,
@@ -160,12 +151,9 @@ const cekMal = ({
 };
 
 function hitungDistribusiZakat(total: number, mustahik: string[]) {
-  // 1. Validasi Dasar
   if (total <= 0 || mustahik.length === 0) {
     return { sah: false, pesan: "Data input tidak lengkap." };
   }
-
-  // 2. Cek Aturan Syariah (Level 10)
   const pilihAmil = mustahik.includes("amil");
   const pilihPrioritas =
     mustahik.includes("fakir") || mustahik.includes("miskin");
@@ -182,18 +170,13 @@ function hitungDistribusiZakat(total: number, mustahik: string[]) {
       pesan: "Golongan Fakir atau Miskin adalah prioritas utama.",
     };
   }
-
-  // 3. Proses Perhitungan
   const rincian: any = {};
   let danaTersisa = total;
-
-  // Jatah Amil dipisah dulu (tetap 12.5% atau 1/8 bagian)
   if (pilihAmil) {
     rincian["amil"] = total * 0.125;
     danaTersisa -= rincian["amil"];
   }
 
-  // Sisanya dibagi rata ke golongan non-amil yang dipilih
   const golonganLain = mustahik.filter((m) => m !== "amil");
   const jatahPerGolongan = danaTersisa / golonganLain.length;
 

@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Calculator, Check, CheckCircle } from "lucide-react";
+import { Calculator, Check } from "lucide-react";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { cekMal, fitrah } from "@/utils/requirement";
@@ -16,10 +16,8 @@ import { MalForm } from "../blocks/MalForm";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "../ui/dialog";
 import Agreement from "../blocks/agreement";
 
@@ -174,11 +172,11 @@ export const CalculatorTab = ({
           Kalkulator Zakat
         </CardTitle>
         <CardDescription className="text-base">
-          Implementasi logika sesuai level challenge
+          aplikasi utama kalkulator zakat
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-6 space-y-8">
-        <Dialog open={dialogOpen} onOpenChange={(o) => setDialogOpen(!open)}>
+        <Dialog open={dialogOpen} onOpenChange={() => setDialogOpen(!open)}>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Persyaratan Wajib Zakat</DialogTitle>

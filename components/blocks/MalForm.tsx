@@ -57,8 +57,6 @@ export const MalForm = ({
     setPeternakan,
     rikaz,
     setRikaz,
-    persyaratan,
-    setPersyaratan,
   } = props;
 
   return (

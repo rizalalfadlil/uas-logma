@@ -6,9 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { BookOpen } from "lucide-react";
-import Image from "next/image";
 import { SimplePDFViewer } from "../blocks/pdfview";
 
 export const GuideTab = () => {

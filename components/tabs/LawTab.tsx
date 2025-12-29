@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Scale } from "lucide-react";
 import { hukum_logika } from "@/utils/data";
 export const LawTab = () => {
