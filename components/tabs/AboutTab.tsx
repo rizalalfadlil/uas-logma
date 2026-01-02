@@ -59,10 +59,6 @@ export const AboutTab = () => {
               <p className="font-medium text-xl uppercase">Informatika</p>
             </div>
             <div>
-              <p className=" text-slate-600">level challenge</p>
-              <p className="font-medium text-xl uppercase">3</p>
-            </div>
-            <div>
               <p className=" text-slate-600">github</p>
               <a
                 className="font-medium text-xl text-blue-500 hover:underline"
