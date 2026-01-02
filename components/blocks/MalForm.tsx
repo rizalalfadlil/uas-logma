@@ -110,14 +110,14 @@ export const MalForm = ({
       {selectedHarta.includes("emas") && (
         <div>
           <p>emas</p>
-          <div className="flex gap-2 mt-1 flex-wrap">
+          <div className="mt-1 grid sm:grid-cols-3 gap-4">
             <Input
               value={emas.nilai}
               onChange={(e) =>
                 setEmas({ ...emas, nilai: Number(e.target.value) })
               }
+              className="sm:col-span-2"
               type="number"
-              className="w-[400px]"
               label="jumlah dalam gram"
             />
             <Input
@@ -126,7 +126,6 @@ export const MalForm = ({
                 setEmas({ ...emas, haul: Number(e.target.value) });
               }}
               type="number"
-              className="w-[200px]"
               label="haul dalam tahun"
             />
           </div>
@@ -135,14 +134,14 @@ export const MalForm = ({
       {selectedHarta.includes("perak") && (
         <div>
           <p>perak</p>
-          <div className="flex gap-2 mt-1 flex-wrap">
+          <div className="mt-1 grid sm:grid-cols-3 gap-4">
             <Input
               value={perak.nilai}
               onChange={(e) => {
                 setPerak({ ...perak, nilai: Number(e.target.value) });
               }}
               type="number"
-              className="w-[400px]"
+              className="sm:col-span-2"
               label="jumlah dalam gram"
             />
             <Input
@@ -151,7 +150,6 @@ export const MalForm = ({
                 setPerak({ ...perak, haul: Number(e.target.value) });
               }}
               type="number"
-              className="w-[200px]"
               label="haul dalam tahun"
             />
           </div>
@@ -160,7 +158,7 @@ export const MalForm = ({
       {selectedHarta.includes("pertanian") && (
         <div>
           <p>pertanian</p>
-          <div className="flex gap-2 mt-1 flex-wrap">
+          <div className="mt-1 grid sm:grid-cols-3 gap-4">
             <Input
               value={pertanian.nilai}
               onChange={(e) => {
@@ -169,8 +167,8 @@ export const MalForm = ({
                   nilai: Number(e.target.value),
                 });
               }}
+              className="sm:col-span-2"
               type="number"
-              className="w-[400px]"
               label="jumlah dalam gram"
             />
             <RadioGroup
@@ -194,14 +192,14 @@ export const MalForm = ({
       {selectedHarta.includes("uang") && (
         <div>
           <p>uang</p>
-          <div className="flex gap-2 mt-1 flex-wrap">
+          <div className="mt-1 grid sm:grid-cols-3 gap-4">
             <Input
               value={uang.nilai}
               onChange={(e) =>
                 setUang({ ...uang, nilai: Number(e.target.value) })
               }
               type="number"
-              className="w-[400px]"
+              className="sm:col-span-2"
               label="jumlah dalam rupiah"
             />
             <Input
@@ -210,7 +208,6 @@ export const MalForm = ({
                 setUang({ ...uang, haul: Number(e.target.value) })
               }
               type="number"
-              className="w-[200px]"
               label="haul dalam tahun"
             />
           </div>
@@ -219,7 +216,7 @@ export const MalForm = ({
       {selectedHarta.includes("peternakan") && (
         <div>
           <p>peternakan</p>
-          <div className="flex gap-2 mt-1 flex-wrap">
+          <div className="mt-1 grid sm:grid-cols-3 gap-4">
             <Input
               value={peternakan.sapi}
               onChange={(e) =>
@@ -229,7 +226,6 @@ export const MalForm = ({
                 })
               }
               type="number"
-              className="w-[200px]"
               label="jumlah sapi dalam ekor"
             />
             <Input
@@ -241,7 +237,6 @@ export const MalForm = ({
                 })
               }
               type="number"
-              className="w-[200px]"
               label="jumlah kambing dalam ekor"
             />
             <Input
@@ -253,7 +248,6 @@ export const MalForm = ({
                 })
               }
               type="number"
-              className="w-[200px]"
               label="jumlah kambing dalam ekor"
             />
           </div>
@@ -262,14 +256,13 @@ export const MalForm = ({
       {selectedHarta.includes("rikaz") && (
         <div>
           <p>rikaz</p>
-          <div className="flex gap-2 mt-1 flex-wrap items-center">
+          <div className="mt-1 grid gap-4">
             <Input
               type="number"
               value={rikaz.temuan}
               onChange={(e) =>
                 setRikaz({ ...rikaz, temuan: Number(e.target.value) })
               }
-              className="w-[300px]"
               label="jumlah temuan dalam rupiah"
             />
             <Input
@@ -278,7 +271,6 @@ export const MalForm = ({
               onChange={(e) =>
                 setRikaz({ ...rikaz, tambang: Number(e.target.value) })
               }
-              className="w-[300px]"
               label="jumlah tambang dalam rupiah"
             />
           </div>

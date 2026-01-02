@@ -175,7 +175,7 @@ export const CalculatorTab = ({
           aplikasi utama kalkulator zakat
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6 space-y-8">
+      <CardContent className="space-y-8 py-6  mx-auto max-w-2xl">
         <Dialog open={dialogOpen} onOpenChange={() => setDialogOpen(!open)}>
           <DialogContent>
             <DialogHeader>
@@ -238,16 +238,18 @@ export const CalculatorTab = ({
                 </Button>
               </div>
             </section>
-            {jenis === "fitrah" && <Fitrah jiwa={jiwa} setJiwa={setJiwa} />}
-            {jenis === "mal" && <MalForm props={malprop} />}
-            <Result
-              persyaratan={persyaratan}
-              isEmpty={isEmpty}
-              jenis={jenis}
-              hitungTotal={hitungTotal}
-              total={total}
-              showResult={showResult}
-            />
+            <div className="space-y-4 p-4 border border-primary/25 rounded-lg">
+              {jenis === "fitrah" && <Fitrah jiwa={jiwa} setJiwa={setJiwa} />}
+              {jenis === "mal" && <MalForm props={malprop} />}
+              <Result
+                persyaratan={persyaratan}
+                isEmpty={isEmpty}
+                jenis={jenis}
+                hitungTotal={hitungTotal}
+                total={total}
+                showResult={showResult}
+              />
+            </div>
           </>
         )}
       </CardContent>
